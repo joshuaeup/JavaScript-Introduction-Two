@@ -1,12 +1,16 @@
 "use strict";
 
+function calculateBMI(mass, height) {
+  return mass / height ** 2;
+}
+
 // Tom object with height in Inches and Mass in Pounds
 const Tom = {
   height: 9,
   mass: 8,
   // Passing anonymous function to calculate BMI
   BMI: function () {
-    return this.mass / this.height ** 2;
+    return calculateBMI(this.mass, this.height);
   },
 };
 
@@ -16,15 +20,12 @@ const Jerry = {
   mass: 45 / 454,
   // Passing anonymous function to calculate BMI
   BMI: function () {
-    return this.mass / this.height ** 2;
+    return calculateBMI(this.mass, this.height);
   },
 };
 
-// Boolean value that checks BMI state
-let tomHigherBMI;
-
 // Conditional to check BMI value
-Tom.BMI() > Jerry.BMI() ? (tomHigherBMI = true) : (tomHigherBMI = false);
+let tomHigherBMI = Tom.BMI() > Jerry.BMI();
 
 // Logs TomHigherBMI state
 console.log(`Is Tom’s BMI higher than Jerry’s? ${tomHigherBMI}`);
